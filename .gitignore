@@ -1,0 +1,10 @@
+
+*.pyc
+db.sqlite3
+imagem/migrations/__init__.py
+imagem/__init__.py
+objeto/__init__.py
+objeto/migrations/__init__.py
+visiondetect/__init__.py
+.DS_Store
+.idea
