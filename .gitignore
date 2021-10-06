@@ -8,3 +8,5 @@ objeto/migrations/__init__.py
 visiondetect/__init__.py
 .DS_Store
 .idea
+dispositivo/migrations/__init__.py
+dispositivo/__init__.py

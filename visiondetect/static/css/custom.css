@@ -8,3 +8,19 @@
 .itens-menu li{
     margin-left: 30px;
 }
+.box-image-camera{
+    text-align: center;
+}
+.image-camera{
+    width: 600px;
+}
+body main{
+    max-width: 1000px;
+    margin: 0 auto 48px;
+}
+.box-info-camera{
+    margin-top: 100px;
+}
+.box-info-camera img{
+    width: 400px;
+}

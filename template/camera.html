@@ -1,4 +1,12 @@
 {% extends 'defaultTemplate.html' %}
 {% load static %}
 {% block content %}
+<h1>Câmera</h1>
+<div class="box-image-camera">
+    <img class="image-camera" src="http://192.168.1.113:8080/?action=stream"/>
+    <div class="box-info-camera">
+        <p>Essas imagens são em tempo real da câmera do dispositivo. O dispositivo possui um módulo de câmera v2 semelhante a imagem abaixo</p>
+        <img src="{% static '/img/rasp-camera.jpg' %}">
+    </div>
+</div>
 {% endblock %}
