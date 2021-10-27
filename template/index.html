@@ -1,4 +1,47 @@
 {% extends 'defaultTemplate.html' %}
 {% load static %}
 {% block content %}
+<div class="box-homepage">
+   <div class="card card-objetos">
+      <h5 class="card-header">
+          Objetos
+          <a href="{% url 'adicionar_objeto'%}"><img class="icon-plus" src="{% static 'img/add.png' %}"/></a>
+      </h5>
+      <div class="card-body">
+           <div class="list-group">
+                {% if objetos %}
+                    {% for objeto in objetos %}
+                        <a href="#" class="list-group-item list-group-item-action {% if dispositivo.selecionado %}active{% endif %}">{{objeto.nome}}</a>
+                    {% endfor %}
+                {% else %}
+                    <span>NENHUM OBJETO CADASTRADO</span>
+                {% endif %}
+           </div>
+      </div>
+   </div>
+    <div class="card card-dispositivos">
+        <h5 class="card-header">
+            Dispositivos
+            <a href="{% url 'adicionar_dispositivo'%}"><img class="icon-plus" src="{% static 'img/add.png' %}"/></a>
+        </h5>
+        <div class="card-body">
+            <div class="list-group">
+                {% if dispositivos %}
+                    {% for dispositivo in dispositivos %}
+                        <div class="box-dispositivos">
+                            <a href="{% url 'select_dispositivo' dispositivo.id %}"
+                               class="list-group-item list-group-item-action {% if dispositivo.selecionado %}active{% endif %}">
+                                {{dispositivo.nome}} ({{dispositivo.ip}})
+                            </a>
+                            <a href="{% url 'deletar_dispositivo' dispositivo.id %}"><img class="delete-dispositivo" src="{% static 'img/trash-bin.png' %}"/></a>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <span>NENHUM DISPOSITIVO CADASTRADO</span>
+                {% endif %}
+            </div>
+            <span class="rodape">*Apenas um dispositivo pode estar selecionado</span>
+        </div>
+   </div>
+</div>
 {% endblock %}

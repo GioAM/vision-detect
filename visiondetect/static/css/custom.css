@@ -24,3 +24,52 @@ body main{
 .box-info-camera img{
     width: 400px;
 }
+.box-homepage{
+    display: flex;
+}
+.card-objetos{
+    margin-right: 50px;
+    width: 500px;
+    height: 400px;
+    overflow-y: scroll;
+}
+.card-dispositivos{
+    width: 500px;
+    height: 400px;
+    overflow-y: scroll;
+}
+.icon-plus{
+    position: absolute;
+    left: 415px;
+}
+.rodape{
+    font-size: 12px;
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+}
+.card-body {
+    padding: 2.0rem 1rem !important;
+}
+.box-dispositivos{
+    display: flex;
+}
+.delete-dispositivo{
+    margin-left: 10px;
+}
+#new-dispositivo .form-row{
+    display: block !important;
+}
+.footer-logo{
+    width: 85px;
+}
+.box-footer{
+    text-align: center;
+}
+#footer-page{
+    margin-top: 221px!important;
+    margin-bottom: 3rem!important;
+}
+.link-secondary{
+    border-bottom: 1px solid #6c757d;
+}

@@ -13,4 +13,5 @@ $(document).ready(function (){
     }else{
         $('#home').removeClass('link-dark').addClass('link-secondary');
     }
+     $('#ip').mask('099.099.099.099');
 });
