@@ -1,6 +1,6 @@
 $(document).ready(function (){
     let url_now = window.location.href;
-    if(url_now.includes('objetos')){
+    if(url_now.includes('objeto')){
         $('#objetos').removeClass('link-dark').addClass('link-secondary');
     }else if(url_now.includes('camera')){
         $('#camera').removeClass('link-dark').addClass('link-secondary');
@@ -14,4 +14,7 @@ $(document).ready(function (){
         $('#home').removeClass('link-dark').addClass('link-secondary');
     }
      $('#ip').mask('099.099.099.099');
+});
+$("#select-add-image").on("change", function(){
+   console.log(this.value);
 });

@@ -17,6 +17,7 @@
 body main{
     max-width: 1000px;
     margin: 0 auto 48px;
+    min-height: 400px;
 }
 .box-info-camera{
     margin-top: 100px;
@@ -57,7 +58,8 @@ body main{
 .delete-dispositivo{
     margin-left: 10px;
 }
-#new-dispositivo .form-row{
+#new-dispositivo .form-row,
+#new-objeto .form-row{
     display: block !important;
 }
 .footer-logo{
@@ -73,3 +75,61 @@ body main{
 .link-secondary{
     border-bottom: 1px solid #6c757d;
 }
+#table-objetos{
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+#new-objeto{
+    height: 50px;
+}
+#new-objeto a{
+    color: white;
+    text-decoration: none;
+}
+a{
+    text-decoration: none !important;
+}
+#table-objetos a{
+    color: black;
+}
+.info-images{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.info-image{
+    margin-right: 100px;
+    margin-bottom: 30px;
+}
+.info-image img{
+    width: 300px;
+}
+.box-button{
+    position: absolute;
+    right: 400px;
+    top: 150px;
+}
+.box-button button a{
+    text-decoration: none;
+    color: white;
+}
+.box-button button{
+    margin-right: 30px;
+}
+.box-new-objeto h1{
+    margin-bottom: 60px;
+}
+.box-new-objeto form .form-row{
+    display: block;
+    margin-bottom: 60px;
+}
+.info-image img.delete-imagem{
+    width: 35px;
+    position: absolute;
+    margin-left: 260px;
+    margin-top: 5px;
+}
+.head-info{
+    margin-bottom: 20px;
+}
+aaaaa

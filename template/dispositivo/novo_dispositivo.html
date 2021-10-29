@@ -1,7 +1,7 @@
 {% extends 'defaultTemplate.html' %}
 {% load static %}
 {% block content %}
-    <div class="box-pages">
+    <div class="box-pages box-new-objeto">
       <h1 class="title">Novo Dispositivo</h1>
         <form action="{% url 'adicionar_dispositivo'%}" class="new-form" id="new-dispositivo" method="POST" enctype="multipart/form-data">
             {% csrf_token %}

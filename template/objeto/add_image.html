@@ -1,0 +1,25 @@
+{% extends 'defaultTemplate.html' %}
+{% load static %}
+{% block content %}
+    <div class="box-pages box-new-objeto">
+      <h1 class="title">Adicionar Imagem</h1>
+        <select class="form-select" id="select-add-image" aria-label="Default select example">
+          <option value="input">Adicionar imagem por input</option>
+          <option value="camera" selected>Adicionar imagem da câmera</option>
+        </select>
+        <form action="{% url 'add_image' objeto_id %}" class="new-form" id="add-image" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="image">Imagem</label>
+                    <input type="file" class="form-control-file" name="image" id="image" required/>
+                </div>
+            </div>
+          <button type="submit" class="btn btn-primary">Adicionar</button>
+        </form>
+        <div id="new-image-camera">
+            <img class="image-camera" src="http://{{dispositivo.ip}}:8080/?action=stream"/>
+            <button type="button" class="btn btn-primary"><a href="{% url 'add_image' objeto_id %}">Adicionar</a></button>
+        </div>
+    </div>
+{% endblock %}

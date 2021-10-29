@@ -26,3 +26,10 @@ def adicionar_dispositivo(request):
 def deletar_dispositivo(request, dispositivo_id):
     Dispositivo.objects.filter(id=dispositivo_id).delete()
     return redirect('/')
+
+
+def camera(request):
+    data = {
+        "dispositivo": Dispositivo.objects.filter(selecionado=True)[0]
+    }
+    return render(request, 'dispositivo/camera.html', data)

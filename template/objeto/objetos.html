@@ -1,0 +1,32 @@
+{% extends 'defaultTemplate.html' %}
+{% load static %}
+{% block content %}
+   <div class="box-pages">
+        <div>
+            <button type="button" id="new-objeto" class="btn btn-success float-right button-new"><a href="{% url 'adicionar_objeto' %}">Novo Objeto</a></button>
+            <h1 class="title">Objetos</h1>
+        </div>
+        <div class="box-items">
+            <table class="table table-striped" id="table-objetos">
+                <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if objetos %}
+                        {% for objeto in objetos %}
+                        <tr>
+                            <th scope="row"><a href="{% url 'get_objeto' objeto.id %}">{{objeto.id}}</a></th>
+                            <td><a href="{% url 'get_objeto' objeto.id %}">{{objeto.nome}}</a></td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <span>NENHUM OBJETO</span>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

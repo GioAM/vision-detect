@@ -1,0 +1,44 @@
+{% extends 'defaultTemplate.html' %}
+{% load static %}
+{% block content %}
+    <div class="box-pages">
+        <div class="head-info">
+            <h1 class="title">{{objeto.nome}}</h1>
+            <span class="add-info"><i>{{objeto.pasta}}</i></span>
+            <div class="box-button">
+                <button type="button" class="btn btn-danger float-right button-delete"><a href="#deleteModal" data-toggle="modal" data-target="#deleteModal">Excluir Objeto</a></button>
+                <button type="button" id="add-image" class="btn btn-success float-right button-new"><a href="{% url 'add_image' objeto.id %}">Adicionar Imagem</a></button>
+                <button type="button" id="update-objeto" class="btn btn-primary float-right button-new"><a href="{% url 'update_objeto' objeto.id %}">Alterar Objeto</a></button>
+            </div>
+        </div>
+        <div class="info-images">
+            {% if imagens %}
+                {% for imagem in imagens %}
+                     <div class="info-image">
+                         <a href="{% url 'deletar_image' imagem.id %}"><img class="delete-imagem" src="{% static 'img/trash-bin.png' %}"/></a>
+                         <img src="{{imagem.image.url}}"/>
+                     </div>
+                {% endfor %}
+            {% else %}
+                <span>NENHUMA IMAGEM</span>
+            {% endif %}
+        </div>
+    </div>
+    <!-- Delete Modal-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Deseja mesmo excluir o objeto {{objeto.name}}?</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-footer">
+                <a class="btn  btn-danger" href="{% url 'delete_objeto' objeto.id %}">Excluir</a>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock %}

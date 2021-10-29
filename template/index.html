@@ -11,7 +11,7 @@
            <div class="list-group">
                 {% if objetos %}
                     {% for objeto in objetos %}
-                        <a href="#" class="list-group-item list-group-item-action {% if dispositivo.selecionado %}active{% endif %}">{{objeto.nome}}</a>
+                        <a href="{% url 'get_objeto' objeto.id %}" class="list-group-item list-group-item-action {% if dispositivo.selecionado %}active{% endif %}">{{objeto.nome}}</a>
                     {% endfor %}
                 {% else %}
                     <span>NENHUM OBJETO CADASTRADO</span>
