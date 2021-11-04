@@ -69,7 +69,7 @@ body main{
     text-align: center;
 }
 #footer-page{
-    margin-top: 221px!important;
+    margin-top: 100px!important;
     margin-bottom: 3rem!important;
 }
 .link-secondary{
@@ -132,4 +132,18 @@ a{
 .head-info{
     margin-bottom: 20px;
 }
-aaaaa
+#select-add-image{
+    width: 350px;
+    margin-bottom: 30px;
+}
+#add-camera-img{
+    display: block;
+    margin-top: 50px;
+}
+#add-camera-img a{
+    text-decoration: none;
+    color: white;
+}
+.camera-info{
+    font-size: 12px;
+}

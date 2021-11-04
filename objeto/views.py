@@ -120,6 +120,12 @@ def add_image_camera(request, objeto_id):
         cap.release()
         new_imagem.image.name = path
         new_imagem.save()
+
+        print("path: {0}".format(path))
+        print("objeto.pasta: {0}".format(objeto.pasta))
+        print("settings.MEDIA_ROOT: {0}".format(settings.MEDIA_ROOT))
+
+        os.system('labelImg {0} {1}'.format(path, objeto.nome))
     except Exception as e:
         print(e)
 
@@ -133,3 +139,37 @@ def delete_image(request, image_id):
         os.remove(imagem.image.name)
     Imagem.objects.filter(id=image_id).delete()
     return redirect('/objeto/' + str(id))
+
+
+def treinamento(request):
+    all_objetos = Objeto.objects.filter().order_by("id")
+    script = 'C:/projetos/vision-detect/TensorFlow/workspace/training_demo/scripts/preprocessing'
+    labels = 'C:/projetos/vision-detect/TensorFlow/workspace/training_demo/annotations/label_map.pbtxt'
+    annotations = 'C:/projetos/vision-detect/TensorFlow/workspace/training_demo/annotations'
+    train = 'C:/projetos/vision-detect/TensorFlow/workspace/training_demo/images/train'
+    test = 'C:/projetos/vision-detect/TensorFlow/workspace/training_demo/images/test'
+
+    arquivo = open(labels, 'w')
+    arquivo.close()
+    try:
+        shutil.rmtree(train)
+        shutil.rmtree(test)
+    except OSError as e:
+        print("Error: %s - %s." % (e.filename, e.strerror))
+    for objeto in all_objetos:
+        os.system('python {0}/partition_dataset.py -x -i {1}{2} -r 0.1'.format(
+            script, settings.MEDIA_ROOT, objeto.pasta))
+        arquivo = open(labels, 'a')
+        arquivo.write("item{\n")
+        arquivo.write("    id: {0}\n".format(str(objeto.id)))
+        arquivo.write("    name: '{0}'\n".format(objeto.nome))
+        arquivo.write("}\n")
+        arquivo.close()
+
+    os.system('python {0}/generate_tfrecord.py -x {1} -l {2} -o {3}/train.record'.format(
+        script, train, labels, annotations))
+    os.system('python {0}/generate_tfrecord.py -x {1} -l {2} -o {3}/test.record'.format(
+        script, test, labels, annotations))
+
+    return redirect('/objeto/1')
+

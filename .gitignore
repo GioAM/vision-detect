@@ -1,17 +1,14 @@
 
 *.pyc
 db.sqlite3
-imagem/migrations/__init__.py
 imagem/__init__.py
 objeto/__init__.py
-objeto/migrations/__init__.py
 visiondetect/__init__.py
 .DS_Store
 .idea
-dispositivo/migrations/__init__.py
 dispositivo/__init__.py
-dispositivo/migrations/0001_initial.py
-imagem/migrations/0001_initial.py
-objeto/migrations/0001_initial.py
-imagem/migrations/0002_auto_20211028_1149.py
+dispositivo/migrations/
+imagem/migrations/
+objeto/migrations/
 media/
+TensorFlow/

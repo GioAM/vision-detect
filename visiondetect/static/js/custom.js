@@ -13,8 +13,15 @@ $(document).ready(function (){
     }else{
         $('#home').removeClass('link-dark').addClass('link-secondary');
     }
-     $('#ip').mask('099.099.099.099');
+    $('#ip').mask('099.099.099.099');
+    $('#add-image-form').hide();
 });
 $("#select-add-image").on("change", function(){
-   console.log(this.value);
+    if (this.value.includes("input")) {
+        $('#add-image-form').show();
+        $('#new-image-camera').hide();
+    }else if(this.value.includes("camera")){
+        $('#add-image-form').hide();
+        $('#new-image-camera').show();
+    }
 });
