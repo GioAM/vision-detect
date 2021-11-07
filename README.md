@@ -13,13 +13,12 @@ Sistema que utiliza visão computacional para detecção e contagem de objetos. 
 
 Para executar ou modificar a aplicação em seu local, é necessário ter instalado as seguintes dependências:
 
-  NodeJS:
+  Python:
 
-  - [Windows](https://nodejs.org/en/download/)
+  - [Python](https://nodejs.org/en/download/)
+  - [Framework Django](https://nodejs.org/en/download/)
 
-  - [Linux (Debian/Ubuntu)](https://github.com/CristianAmbrosi/tutoriais/blob/master/Instalar%20Node.js%20no%20Ubuntu.md)
-
-  - [MacOS](https://nodejs.org/en/download/)
+  
 
   Gulp.js:
 
