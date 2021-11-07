@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/9125404/57946309-67a6b080-78b2-11e9-8075-b280bf1ce9a1.png" width=150px height=150px alt="Escalonadores" />
+  <img src="https://github.com/GioAM/vision-detect/blob/main/visiondetect/static/img/logo.png" width=150px height=150px alt="Vision Detect" />
 </div>
 
 <h2 align="center">Vision Detect</h2>
