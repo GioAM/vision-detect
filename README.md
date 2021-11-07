@@ -13,12 +13,12 @@ Sistema que utiliza visão computacional para detecção e contagem de objetos. 
 
 Para executar ou modificar a aplicação em seu local, é necessário ter instalado as seguintes dependências:
 
-  - [Python]
-  - [Framework Django]
-  - [Banco de Dados PostgreSQL]
-  - [Banco de Dados PostgreSQL]
-  - [Biblioteca OpenCV]
-  - [Biblioteca Pillow]
+  - Python
+  - Framework Django
+  - Banco de Dados PostgreSQL
+  - Bibliteca labelImg
+  - Biblioteca OpenCV
+  - Biblioteca Pillow
 
 ## Autor
 
