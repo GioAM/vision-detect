@@ -1,22 +1,14 @@
 <div align="center">
-  <img src="https://github.com/GioAM/vision-detect/blob/main/visiondetect/static/img/logo.png" width=150px height=150px alt="Vision Detect" />
+  <img src="https://github.com/GioAM/vision-detect/blob/main/visiondetect/static/img/logo.png" height=150px alt="Vision Detect" />
 </div>
 
 <h2 align="center">Vision Detect</h2>
 
-<div align="center">
 
--------------------- 
-
-**Demo:** https://gioam.github.io/escalonadores
-
---------------------
-
-</div>
 
 ## Sobre
 
-Simples aplicação demonstrativa do escalonamento de processos no Sistema Operacional. Desenvolvido para a matéria de Sistemas Operacionais I.
+Sistema que utiliza visão computacional para detecção e contagem de objetos. Trabalho de Conclusão desenvolvido para o curso de Ciência da Computação.
 
 ## Instalando as dependências
 
