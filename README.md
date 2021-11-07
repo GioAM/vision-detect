@@ -2,7 +2,6 @@
   <img src="https://github.com/GioAM/vision-detect/blob/main/visiondetect/static/img/logo.png" height=150px alt="Vision Detect" />
 </div>
 
-<h2 align="center">Vision Detect</h2>
 
 
 
