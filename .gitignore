@@ -11,4 +11,5 @@ dispositivo/migrations/
 imagem/migrations/
 objeto/migrations/
 media/
-Tensorflow/models
+
+Tensorflow/

@@ -5,6 +5,8 @@
         <div class="head-info">
             <h1 class="title">{{objeto.nome}}</h1>
             <span class="add-info"><i>{{objeto.pasta}}</i></span>
+            <br></br>
+            <span class="add-info"><i>Total de imagens: {{total_imagens}}</i></span>
             <div class="box-button">
                 <button type="button" class="btn btn-danger float-right button-delete"><a href="#deleteModal" data-toggle="modal" data-target="#deleteModal">Excluir Objeto</a></button>
                 <button type="button" id="add-image" class="btn btn-success float-right button-new"><a href="{% url 'add_image' objeto.id %}">Adicionar Imagem</a></button>

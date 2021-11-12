@@ -49,10 +49,12 @@ def get_all_objetos(request):
 def get_objeto(request, objeto_id):
     objeto_to_show = get_object_or_404(Objeto, pk=objeto_id)
     imagens = Imagem.objects.filter(objeto=objeto_id).order_by("id")
+    total_imagens =  Imagem.objects.filter(objeto=objeto_id).count()
 
     data = {
         'objeto': objeto_to_show,
-        'imagens': imagens
+        'imagens': imagens,
+        'total_imagens': total_imagens
     }
     return render(request, 'objeto/objeto.html', data)
 
@@ -99,7 +101,7 @@ def add_image(request, objeto_id):
         os.rename(initial_path, new_path)
         update_imagem.save()
 
-        return redirect('/objeto/' + str(objeto_id))
+        return redirect('/objeto/image/' + str(objeto_id))
     data = {
         'objeto_id': objeto_id,
         "dispositivo": Dispositivo.objects.filter(selecionado=True)[0]
@@ -129,7 +131,7 @@ def add_image_camera(request, objeto_id):
     except Exception as e:
         print(e)
 
-    return redirect('/objeto/' + str(objeto_id))
+    return redirect('/objeto/image/' + str(objeto_id))
 
 
 def delete_image(request, image_id):
