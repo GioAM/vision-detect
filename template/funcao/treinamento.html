@@ -4,7 +4,8 @@
     <div class="box-pages box-new-objeto">
       <h1 class="title">Treinamento</h1>
         <div id="new-image-camera">
-            <button type="button" class="btn btn-primary" ><a href="{% url 'dataset'%}">Preparar informações</a></button>
+            <p class="info-training">O treinamento do modelo é divido em diversas partes, além da preparação dos datasets possui outros passos que devem ser feito manualmente. <a href="{% url 'about'%}">Mais informações.</a></p>
+            <button type="button" class="btn btn-primary" ><a id="t-dataset" href="{% url 'dataset'%}">Preparar informações</a></button>
         </div>
     </div>
 {% endblock %}

@@ -13,3 +13,4 @@ objeto/migrations/
 media/
 
 Tensorflow/
+visiondetect/static/detection/

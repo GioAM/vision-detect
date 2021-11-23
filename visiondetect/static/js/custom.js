@@ -25,3 +25,27 @@ $("#select-add-image").on("change", function(){
         $('#new-image-camera').show();
     }
 });
+
+$('#detect-objeto').on('click', function (){
+   $.ajax({
+        url: 'http://localhost:8000/detect/objects',
+        method: "GET",
+        data: []
+    }).then(function(data){
+        document.getElementById('image-result').src = data['imagem'];
+        drawTable(data['contagem']);
+    });
+});
+
+function drawTable(contagem){
+    contagem = jQuery.parseJSON(contagem);
+    $('#contagem-objetos').html('');
+    for(var k in contagem) {
+        $('#contagem-objetos').append(
+            `<tr>
+              <td>${k}</td>
+              <td>${contagem[k]}</td>
+            </tr>`
+        );
+    }
+}

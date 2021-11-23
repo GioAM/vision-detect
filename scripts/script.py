@@ -1,6 +1,9 @@
 import math
+import shutil
 from shutil import copyfile
 import random as rand
+from os import path
+
 import tensorflow.compat.v1 as tf
 import os
 import glob
@@ -25,6 +28,12 @@ label_map_dict = label_map_util.get_label_map_dict(label_map)
 def prepare_data(objetos):
     arquivo = open(LABELS, 'w')
     arquivo.close()
+    if path.isdir(TRAIN):
+        shutil.rmtree(TRAIN, ignore_errors=True)
+
+    if path.isdir(TEST):
+        shutil.rmtree(TEST, ignore_errors=True)
+
     for objeto in objetos:
         update_labelmap(objeto)
         partition_dataset(objeto, 0.2)
@@ -49,7 +58,6 @@ def partition_dataset(objeto, percent):
     train_dir = os.path.join(TRAIN)
     test_dir = os.path.join(TEST)
     source_dir = os.path.join(IMAGES + objeto.pasta)
-
     if not os.path.exists(train_dir):
         os.makedirs(train_dir)
     if not os.path.exists(test_dir):

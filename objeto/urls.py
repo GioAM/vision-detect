@@ -12,5 +12,8 @@ urlpatterns = [
     path('objeto/camera/<int:objeto_id>', views.add_image_camera, name='add_image_camera'),
     path('objeto/del_image/<int:image_id>', views.delete_image, name='deletar_image'),
     path('treinamento', views.treinamento, name='treinamento'),
-    path('treinamento/dataset', views.dataset, name='dataset')
+    path('treinamento/dataset', views.dataset, name='dataset'),
+    path('deteccao', views.deteccao, name='deteccao'),
+    path('detect/objects', views.detect_objects, name='detect_objects'),
+    path('about', views.about, name='about')
 ]

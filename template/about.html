@@ -1,0 +1,38 @@
+{% extends 'defaultTemplate.html' %}
+{% load static %}
+{% block content %}
+<h1>Informações sobre o projeto</h1>
+<div class="box-image-camera">
+    <div class="box-info-about">
+        <div class="card card-about">
+          <div class="card-header">
+              <h5>Dispositivos</h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Apenas um dispositivo pode ser selecionado por vez e o ip do mesmo será utilizado para capturar as imagens da câmera.</p>
+          </div>
+        </div>
+        <div class="card card-about">
+          <div class="card-header">
+              <h5>Treinamento</h5>
+          </div>
+          <div class="card-body">
+              <p class="card-text">As etapas de treinamento são as seguintes:</p>
+              <img src="{% static '/img/etapas.png' %}" class="etapas"/>
+              <p class="card-text">O treinamento do modelo deve ser rodado com o comando: <i class="sub">model_main_tf2.py</i></p>
+              <p class="card-text">A exportação do modelo deve ser rodado com o comando: <i class="sub">exporter_main_v2.py</i></p>
+              <p class="card-text">Para mais informações do treinamento de modelo customizado acesse: <i class="sub">https://tensorflow-object-detection-api-tutorial.readthedocs.io/</i></p>
+          </div>
+        </div>
+        <div class="card card-about">
+          <div class="card-header">
+              <h5>Adicionar imagem</h5>
+          </div>
+          <div class="card-body">
+              <p class="card-text">Após adicionar uma imagem é necessário esperar o utilitário <i>labelImg</i> abrir para que seja feita a localização dos objetos. Só assim a imagem será adicionada da forma correta.</p>
+              <img src="{% static '/img/label.png' %}" class="etapas"/>
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

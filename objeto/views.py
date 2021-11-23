@@ -1,16 +1,39 @@
-import os
+import json
 import re
 import shutil
-from aifc import Error
-
+from time import gmtime, strftime
+import os
 import cv2
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from dispositivo.models import Dispositivo
 from imagem.models import Imagem
 from objeto.models import Objeto
 from scripts.script import prepare_data
 from visiondetect import settings
+import numpy as np
 from PIL import Image
+import matplotlib.pyplot as plt
+import warnings
+import time
+from object_detection.utils import label_map_util
+import tensorflow as tf
+from object_detection.utils import visualization_utils as viz_utils
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
+path_to_labels = 'C:/projetos/vision-detect/TensorFlow/workspace/training_demo/annotations/label_map.pbtxt'
+path_to_saved_model = "C:/projetos/vision-detect/TensorFlow/workspace/training_demo/exported-models/my_model/" \
+                      "saved_model"
+
+print('Loading model...', end='')
+start_time = time.time()
+detect_fn = tf.saved_model.load(path_to_saved_model)
+end_time = time.time()
+elapsed_time = end_time - start_time
+print('Done! Took {} seconds'.format(elapsed_time))
+category_index = label_map_util.create_category_index_from_labelmap(path_to_labels)
+print(category_index)
+warnings.filterwarnings('ignore')
 
 
 def index(request):
@@ -148,8 +171,83 @@ def treinamento(request):
     return render(request, 'funcao/treinamento.html')
 
 
+def deteccao(request):
+    return render(request, 'funcao/deteccao.html')
+
+
+def about(request):
+    return render(request, 'about.html')
+
+
 def dataset(request):
     all_objetos = Objeto.objects.filter().order_by("id")
     prepare_data(all_objetos)
     return redirect('/treinamento')
+
+
+def detect_objects(request):
+
+    path_image = 'C:/projetos/vision-detect/visiondetect/static/detection/'
+    time_now = strftime("%Y%m%d%H%M%S", gmtime())
+    image_origin = path_image + time_now + "_origin.jpg"
+    name_image_final = time_now + "_final.jpg"
+    image_final = path_image + name_image_final
+    min_score = 0.75
+
+    cap = cv2.VideoCapture('http://192.168.1.113:8080/?action=stream')
+    ret, frame = cap.read()
+
+    print("found frame")
+    cv2.imwrite(image_origin, frame)
+    image_path = image_origin
+    print('Running inference for {}... '.format(image_path), end='')
+
+    image_np = load_image_into_numpy_array(image_path)
+    input_tensor = tf.convert_to_tensor(image_np)
+    input_tensor = input_tensor[tf.newaxis, ...]
+    detections = detect_fn(input_tensor)
+    num_detections = int(detections.pop('num_detections'))
+    detections = {key: value[0, :num_detections].numpy() for key, value in detections.items()}
+    detections['num_detections'] = num_detections
+    detections['detection_classes'] = detections['detection_classes'].astype(np.int64)
+    image_np_with_detections = image_np.copy()
+
+    viz_utils.visualize_boxes_and_labels_on_image_array(
+        image_np_with_detections,
+        detections['detection_boxes'],
+        detections['detection_classes'],
+        detections['detection_scores'],
+        category_index,
+        use_normalized_coordinates=True,
+        max_boxes_to_draw=200,
+        min_score_thresh=min_score,
+        agnostic_mode=False)
+    plt.figure()
+    plt.imshow(image_np_with_detections)
+    print(detections['detection_classes'].astype(np.int64))
+    print(detections['detection_scores'])
+    plt.savefig(image_final)
+
+    contagem = return_objets_count(detections['detection_classes'].astype(np.int64), detections['detection_scores'],
+                                   min_score)
+    data = {'imagem': '/static/detection/' + name_image_final, 'contagem': json.dumps(contagem)}
+    return JsonResponse(data)
+
+
+def load_image_into_numpy_array(path):
+    return np.array(Image.open(path))
+
+
+def return_objets_count(id_objects, scores, min_score):
+    contagem = {}
+    for i in range(0, len(id_objects)):
+        sc_i = scores[i]
+        if sc_i > min_score:
+            r_objeto = get_object_or_404(Objeto, pk=id_objects[i])
+            if r_objeto.nome in contagem:
+                contagem[r_objeto.nome] = contagem[r_objeto.nome] + 1
+            else:
+                contagem[r_objeto.nome] = 1
+    print(contagem)
+    return contagem
 

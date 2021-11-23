@@ -2,9 +2,23 @@
 {% load static %}
 {% block content %}
     <div class="box-pages box-new-objeto">
-      <h1 class="title">Treinamento</h1>
+      <h1 class="title">Detecção de Objetos</h1>
         <div id="new-image-camera">
-            <button type="button" class="btn btn-primary" ><a href="{% url 'dataset'%}">Preparar informações</a></button>
+            <p class="info-training">Ao clicar no botão uma imagem será tirada pelo sistema embarcado e os objetos serão detectados</p>
+            <button type="button" id="detect-objeto" class="btn btn-primary">Detectar objetos</button>
+        </div>
+        <div>
+            <img src="/media/default.png" id="image-result"/>
+            <table class="table table-striped" id="contagem">
+              <thead>
+                <tr>
+                  <th scope="col">Objeto</th>
+                  <th scope="col">Quantidade</th>
+                </tr>
+              </thead>
+              <tbody id="contagem-objetos">
+              </tbody>
+            </table>
         </div>
     </div>
 {% endblock %}

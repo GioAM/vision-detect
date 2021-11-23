@@ -3,14 +3,26 @@ item{
     name: 'Tesoura'
 }
 item{
-    id: 11
-    name: 'Caneca'
-}
-item{
-    id: 12
-    name: 'Caneta'
-}
-item{
-    id: 14
+    id: 2
     name: 'Cola'
+}
+item{
+    id: 3
+    name: 'Parafuso'
+}
+item{
+    id: 7
+    name: 'Pregador'
+}
+item{
+    id: 9
+    name: 'MicroSD'
+}
+item{
+    id: 10
+    name: 'Carta'
+}
+item{
+    id: 11
+    name: 'Pilha'
 }

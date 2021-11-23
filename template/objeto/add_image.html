@@ -7,7 +7,7 @@
           <option value="input">Adicionar imagem por input</option>
           <option value="camera" selected>Adicionar imagem da câmera</option>
         </select>
-        <span class="camera-info">*Após adicionar a imagem aguarde um momento para fazer a localização do objeto. <a href="#">Mais informações</a></span>
+        <span class="camera-info">*Após adicionar a imagem aguarde um momento para fazer a localização do objeto. <a href="{% url 'about'%}">Mais informações</a></span>
         <form action="{% url 'add_image' objeto_id %}" class="new-form" id="add-image-form" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-row">

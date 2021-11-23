@@ -147,3 +147,28 @@ a{
 .camera-info{
     font-size: 12px;
 }
+#t-dataset{
+    text-decoration: none;
+    color: white;
+}
+.info-training{
+    margin-bottom: 50px;
+}
+.card-about{
+    margin-top: 50px;
+}
+.etapas{
+    width: 900px;
+}
+.sub{
+    border-bottom: 1px solid black;
+}
+#image-result{
+    width: 640px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+#contagem{
+    width: 640px;
+    text-align: center;
+}
