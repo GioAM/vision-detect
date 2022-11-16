@@ -192,7 +192,7 @@ def detect_objects(request):
     image_origin = path_image + time_now + "_origin.jpg"
     name_image_final = time_now + "_final.jpg"
     image_final = path_image + name_image_final
-    min_score = 0.75
+    min_score = 0.7
 
     cap = cv2.VideoCapture('http://192.168.1.113:8080/?action=stream')
     ret, frame = cap.read()

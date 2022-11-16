@@ -1,7 +1,7 @@
 <annotation>
-	<folder>cola</folder>
+	<folder>tesoura</folder>
 	<filename>102.jpg</filename>
-	<path>C:\projetos\vision-detect\media\cola\102.jpg</path>
+	<path>C:\projetos\vision-detect\media\tesoura\102.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -12,15 +12,15 @@
 	</size>
 	<segmented>0</segmented>
 	<object>
-		<name>Cola</name>
+		<name>Tesoura</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>392</xmin>
-			<ymin>50</ymin>
-			<xmax>477</xmax>
-			<ymax>264</ymax>
+			<xmin>143</xmin>
+			<ymin>146</ymin>
+			<xmax>615</xmax>
+			<ymax>394</ymax>
 		</bndbox>
 	</object>
 </annotation>

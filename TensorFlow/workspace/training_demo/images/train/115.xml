@@ -1,7 +1,7 @@
 <annotation>
-	<folder>caneta</folder>
+	<folder>cola</folder>
 	<filename>115.jpg</filename>
-	<path>C:\projetos\vision-detect\media\caneta\115.jpg</path>
+	<path>C:\projetos\vision-detect\media\cola\115.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -12,27 +12,15 @@
 	</size>
 	<segmented>0</segmented>
 	<object>
-		<name>Caneta</name>
+		<name>Cola</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>262</xmin>
-			<ymin>11</ymin>
-			<xmax>368</xmax>
-			<ymax>228</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>Caneta</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>431</xmin>
-			<ymin>31</ymin>
-			<xmax>567</xmax>
-			<ymax>220</ymax>
+			<xmin>94</xmin>
+			<ymin>10</ymin>
+			<xmax>444</xmax>
+			<ymax>452</ymax>
 		</bndbox>
 	</object>
 </annotation>
